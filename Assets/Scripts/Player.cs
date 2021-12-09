@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public float fuelUsage;
     public int maxFuel = 100;
-    public int currentFuel;
+    public float currentFuel;
 
     public FuelScript fuelbar;
     public CollisionDetected cD;
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FuelUsage();
+        
         a = cD.missleHit;
         if (a > 1)
         {
@@ -31,6 +34,12 @@ public class Player : MonoBehaviour
     {
         currentFuel -= damage;
 
+        fuelbar.SetFuel(currentFuel);
+    }
+
+    void FuelUsage()
+    {
+        currentFuel -= fuelUsage * Time.deltaTime;
         fuelbar.SetFuel(currentFuel);
     }
 }

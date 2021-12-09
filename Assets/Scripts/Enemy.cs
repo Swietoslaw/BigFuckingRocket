@@ -6,6 +6,10 @@ public class Enemy : MonoBehaviour
 {
     
     Vector2 spawn_position;
+    public float spawnRatt;
+    public float randomnessMax;
+    public float randomnessMin;
+    public bool randomSpawnRate;
     private float spawnRate;
     private float nextSpawn;
 
@@ -29,7 +33,15 @@ public class Enemy : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        spawnRate = Random.Range(3f, 10f);
+        if (randomSpawnRate)
+        {
+            spawnRate = spawnRatt * Random.Range(randomnessMin, randomnessMax);
+        }
+        else
+        {
+            spawnRate = spawnRatt;
+        }
+        
 
         if (Time.time > nextSpawn)
         {

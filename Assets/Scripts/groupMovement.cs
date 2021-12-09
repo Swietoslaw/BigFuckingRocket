@@ -14,12 +14,7 @@ public class groupMovement : MonoBehaviour
     {
 
         
-        if (transform.position.x > 1)
-        {
-            walkSpeed = -walkSpeed;
-            goDown += 1;
-        }
-        if (transform.position.x < 0.2)
+        if (transform.position.x > 1 ^ transform.position.x < 0.2)
         {
             walkSpeed = -walkSpeed;
             goDown += 1;

@@ -33,7 +33,9 @@ public class CollisionDetected : MonoBehaviour
                 
             }
 
-            if(collision.gameObject.name == "bomb(Clone)") // name chcange to layer
+            Debug.Log(collision.gameObject.tag);
+
+            if(collision.gameObject.tag == "missle") // name chcange to layer
             {
                 box = collision.gameObject.GetComponent<BoxController>();
                 missleHit = box.damage;
